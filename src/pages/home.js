@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './styles/home.css';
-import axios from 'axios';
 
 import { Header } from '../components/header.js'
 import { BlueBikeCard } from '../components/bluebikecard.js'

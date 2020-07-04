@@ -26,20 +26,20 @@ export function BlueBikeCard(props) {
             .catch(function (error) {
                 console.log(error);
             })
-    }, [])
+    }, [props.dataset])
 
     var bikeIcons = [];
 
-    for (var i = 0; i < bikesAvailable; i++) {
-        bikeIcons.push(<img className="icon-bike" src={require('../images/bike-available.png')} />);
+    for (let i = 0; i < bikesAvailable; i++) {
+        bikeIcons.push(<img key={i} alt="Available bike" className="icon-bike" src={require('../images/bike-available.png')} />);
     }
 
-    for (var i = 0; i < bikesInUse; i++) {
-        bikeIcons.push(<img className="icon-bike" src={require('../images/bike-inuse.png')} />);
+    for (let i = 0; i < bikesInUse; i++) {
+        bikeIcons.push(<img key={1000 + i} alt="Bike in use" className="icon-bike" src={require('../images/bike-inuse.png')} />);
     }
 
-    for (var i = 0; i < bikeSlotsEmpty; i++) {
-        bikeIcons.push(<img className="icon-bike" src={require('../images/bike-slot.png')} />);
+    for (let i = 0; i < bikeSlotsEmpty; i++) {
+        bikeIcons.push(<img key={1000000 + i} alt="Empty bike slot" className="icon-bike" src={require('../images/bike-slot.png')} />);
     }
 
     return (

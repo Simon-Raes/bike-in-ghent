@@ -1,5 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export function Header() {
-    return (<div className="header">Nav goes here?</div>)
+    return (
+        <div className="header">
+            <div className="headercontent">
+                <div className="headeritem">BlueBikes</div>
+                <div className="headeritem">Parkings</div>
+            </div>
+        </div>
+    )
 }

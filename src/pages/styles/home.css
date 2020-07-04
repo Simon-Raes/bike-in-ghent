@@ -2,6 +2,14 @@
     background-color: aqua;
     padding: 16px;
 }
+.headercontent{
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+}
+.headeritem {
+    margin-right: 30px;
+}
 
 .content {
     max-width: 800px;
