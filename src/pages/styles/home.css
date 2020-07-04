@@ -1,0 +1,27 @@
+.header {
+    background-color: aqua;
+    padding: 16px;
+}
+
+.content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.card {
+    background-color: beige;
+    margin: 16px;
+    padding: 16px;
+}
+
+.icons-container {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.icon-bike {
+    width: 40px;
+    margin: 5px;
+}
+
