@@ -7,14 +7,14 @@ import { ParkingCard } from '../components/parkingcard.js'
 import axios from 'axios';
 
 export default function Parking() {
-
     const [parkings, setParkings] = useState([]);
+    const [errors, setErrors] = useState([]);
 
     useEffect(() => {
 
         // TODO add a loading state while this is retrieving data
 
-        axios.get(`https://data.stad.gent/api/records/1.0/search/?dataset=real-time-bezettingen-fietsenstallingen-gent&q=&facet=facilityname`)
+        axios.get('https://data.stad.gent/api/records/1.0/search/?dataset=real-time-bezettingen-fietsenstallingen-gent&q=&facet=facilityname')
             .then(response => {
                 const parkings = response.data.records.map(dat => {
                     const blob = {};
@@ -27,6 +27,7 @@ export default function Parking() {
                 setParkings(parkings);
             })
             .catch(function (error) {
+                setErrors(error)
                 console.log(error);
             })
     }, [])
@@ -37,8 +38,10 @@ export default function Parking() {
             <Header />
             <div className="content">
                 {parkings.map(parking =>
-                    // TODO can we just pass the parking object?
+
+
                     <ParkingCard key={parking.name} name={parking.name} bikeSlotsEmpty={parking.bikeSlotsEmpty} bikeSlotsOccupied={parking.bikeSlotsOccupied} />
+
                 )}
             </div>
         </div>
