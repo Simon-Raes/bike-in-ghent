@@ -1,5 +1,5 @@
 .header {
-    background-color: aqua;
+    background-color: rgb(32, 194, 243);
     padding: 16px;
 }
 .headercontent{
@@ -17,12 +17,12 @@
 }
 
 .content {
-    max-width: 800px;
+    max-width: 780px;
     margin: auto;
 }
 
 .card {
-    background-color: beige;
+    background-color: rgb(238, 240, 245);
     margin: 16px;
     padding: 16px;
 }
@@ -30,11 +30,12 @@
 .icons-container {
     margin-top: 16px;
     display: flex;
+
     flex-wrap: wrap;
 }
 
 .icon-bike {
-    width: 40px;
+    width: 32px;
     margin: 5px;
 }
 

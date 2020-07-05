@@ -11,6 +11,7 @@ export default function Home() {
             <Header />
             <div className="content">
                 <BlueBikeCard dataset="blue-bike-deelfietsen-gent-sint-pieters-m-hendrikaplein" />
+                <BlueBikeCard dataset="blue-bike-deelfietsen-gent-sint-pieters-st-denijslaan" />
                 <BlueBikeCard dataset="blue-bike-deelfietsen-gent-dampoort" />
             </div>
         </div>

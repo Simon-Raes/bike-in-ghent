@@ -4,6 +4,7 @@ import axios from 'axios';
 export function BlueBikeCard(props) {
     const [bikesAvailable, setBikesAvailable] = useState(0);
     const [bikesInUse, setBikesInUse] = useState(0);
+    const [bikesInMaintenance, setBikesInMaintenance] = useState(0);
     const [bikeSlotsEmpty, setBikeSlotsEmpty] = useState(0);
     const [name, setName] = useState("");
 
@@ -17,40 +18,47 @@ export function BlueBikeCard(props) {
                 const bikesAvailable = response.data.records[0].fields.capacityavailable;
                 const bikesInUse = response.data.records[0].fields.capacityinuse;
                 const stallCapacity = response.data.records[0].fields.capacitytotal;
-                const bikeSlotsEmpty = stallCapacity - bikesInUse - bikesAvailable;
-
+                const bikeSlotsEmpty = stallCapacity - bikesAvailable;
+                
                 setBikesAvailable(bikesAvailable);
                 setBikesInUse(bikesInUse);
                 setBikeSlotsEmpty(bikeSlotsEmpty);
+                setBikesInMaintenance(response.data.records[0].fields.capacityinmaintenance);
             })
             .catch(function (error) {
                 console.log(error);
             })
     }, [props.dataset])
 
-    var bikeIcons = [];
+    var bikesStall = [];
+    var bikesUnavailable = [];
 
     for (let i = 0; i < bikesAvailable; i++) {
-        bikeIcons.push(<img key={i} alt="Available bike" className="icon-bike" src={require('../images/bike-available.png')} />);
+        bikesStall.push(<img key={i} alt="Available bike" className="icon-bike" src={require('../images/bike-blue.png')} />);
     }
+    for (let i = 0; i < bikeSlotsEmpty; i++) {
+        bikesStall.push(<img key={1000 + i} alt="Empty bike slot" className="icon-bike" src={require('../images/bike-grey.png')} />);
+    }
+
 
     for (let i = 0; i < bikesInUse; i++) {
-        bikeIcons.push(<img key={1000 + i} alt="Bike in use" className="icon-bike" src={require('../images/bike-inuse.png')} />);
+        bikesUnavailable.push(<img key={i} alt="Bike in use" className="icon-bike" src={require('../images/bike-green.png')} />);
+    }
+    for (let i = 0; i < bikesInMaintenance; i++) {
+        bikesUnavailable.push(<img key={1000 + i} alt="Bike in maintenance" className="icon-bike" src={require('../images/bike-red.png')} />);
     }
 
-    for (let i = 0; i < bikeSlotsEmpty; i++) {
-        bikeIcons.push(<img key={1000000 + i} alt="Empty bike slot" className="icon-bike" src={require('../images/bike-slot.png')} />);
-    }
 
     return (
         <div className="card">
             <h3>{name}</h3>
-            Currently available: {bikesAvailable} <br />
-            Currently in use: {bikesInUse} <br />
-            Free stall places: {bikeSlotsEmpty}
-
+            This location has {bikesAvailable} bikes available and {bikeSlotsEmpty} empty storage slots
             <div className="icons-container">
-                {bikeIcons}
+                {bikesStall}
+            </div>
+            <br />{bikesInUse} bikes are currently in use, {bikesInMaintenance} are undergoing maintenance:
+            <div className="icons-container">
+                {bikesUnavailable}
             </div>
         </div>
     )
