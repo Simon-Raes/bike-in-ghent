@@ -30,7 +30,7 @@
 .icons-container {
     margin-top: 16px;
     display: flex;
-
+    align-items: flex-start;
     flex-wrap: wrap;
 }
 
