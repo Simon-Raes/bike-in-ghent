@@ -1,11 +1,17 @@
 import React from 'react';
 
+import { NavLink } from "react-router-dom";
+
 export function Header() {
     return (
         <div className="header">
             <div className="headercontent">
-                <div className="headeritem">BlueBikes</div>
-                <div className="headeritem">Parkings</div>
+                <NavLink exact to="/" className="headeritem" activeClassName="headeritemactive">
+                    BlueBikes
+                </NavLink>
+                <NavLink to="/parking" className="headeritem" activeClassName="headeritemactive">
+                    Parkings
+                </NavLink>
             </div>
         </div>
     )

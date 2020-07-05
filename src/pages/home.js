@@ -4,6 +4,8 @@ import './styles/home.css';
 import { Header } from '../components/header.js'
 import { BlueBikeCard } from '../components/bluebikecard.js'
 
+// TODO turn into hook component
+
 export default class Home extends Component {
     constructor(props) {
         super(props);

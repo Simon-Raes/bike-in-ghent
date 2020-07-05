@@ -11,6 +11,11 @@
     margin-right: 30px;
 }
 
+.headeritemactive {
+    margin-right: 30px;
+    font-weight: bold;
+}
+
 .content {
     max-width: 800px;
     margin: auto;
