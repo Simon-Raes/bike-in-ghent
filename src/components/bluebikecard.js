@@ -28,7 +28,7 @@ export function BlueBikeCard(props) {
             .catch(function (error) {
                 console.log(error);
             })
-    }, [props.dataset])
+    }, [props.dataset, props.date])
 
     var bikesStall = [];
     var bikesUnavailable = [];

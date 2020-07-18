@@ -21,10 +21,15 @@
     margin: auto;
 }
 
+.checkbox {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
 .card {
     background-color: rgb(238, 240, 245);
-    margin: 16px;
     padding: 16px;
+    margin-bottom: 16px;
 }
 
 .icons-container {
